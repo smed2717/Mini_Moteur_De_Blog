@@ -1,0 +1,24 @@
+{% extends "::base.html.twig" %}
+
+ {% block body %}
+
+     {# display navigation #} 
+     {% for article in pagination %}  
+
+         <div class="row-fluid">
+             <div class="span4" >
+
+                 <h2>{{ article.title }}</h2>
+                 <p>  {{ article.auteur }}</p>
+
+                 <p><a class="btn" href={{ path('blog_home_show_article', {'id' : article.id }) }}> {{ article.content [:100] }}</a></p>
+
+                 <p>
+
+             </div>
+         </div>
+     {% endfor %} 
+
+
+     <div class="navigation" >     {{ knp_pagination_render(pagination) }} </div>
+ {% endblock %}
